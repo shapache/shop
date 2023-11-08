@@ -1,0 +1,51 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.14'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'cn.ac.trimps.sv'
+version = '0.0.1'
+sourceCompatibility = 1.8
+
+repositories {
+	maven { url 'https://maven.aliyun.com/repository/public' }
+	mavenCentral()
+}
+
+bootJar {
+    launchScript()
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = "UTF-8"
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+        
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+ 	implementation  'mysql:mysql-connector-java'
+    implementation 'org.projectlombok:lombok'
+    implementation 'org.json:json:20190722'
+    implementation 'com.alibaba:fastjson:1.2.46'
+
+    implementation 'com.fasterxml.jackson.core:jackson-core'
+
+    implementation 'org.apache.commons:commons-lang3:3.9'
+	implementation 'commons-codec:commons-codec:1.14'
+    
+    compileOnly 'org.springframework.boot:spring-boot-devtools'
+    
+    implementation 'commons-io:commons-io:2.4'
+	implementation 'commons-lang:commons-lang:2.4'
+
+}
+
